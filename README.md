@@ -37,4 +37,10 @@ The libraries requires for running the RANSAC algorithm in Python...
 
 ## RANSAC Implementation Breakdown
 _Lines 7-15_: Creating a storage set of inliers_results; this is an index of all points which are considered as inliers. A SET data structure is preferred to automatically remove the duplicate indexes generated. 3 random points are generated for every iteration for creating the plane to find the inliers.
+
+
 _Lines 17-33_: These lines will correspond to fetching the point data from the PCD/ASCII file format. This might change based on the format of the input data. In this particular case, in the ASCII file, we have rows containing data such as (x,y,z, R,G,B), so we don't pay much attention to the R,G,B values. In the PCD file, the data format was directly (x,y,z). I loaded the point cloud data as a pandas dataframe so methods such as .loc can be shown which fetch the data from particular index locations.
+
+_Lines 35-55_: In this section, I iterated though all the points in the point cloud, and tried to find inliers for the plane that we just generated through random points. Needless to say, we don't want to consider the randomly generated points of the plane, so we don't use them by adding the conditional logic located at _Line 38_. You can ignore the try and excepts block, since they are just trying to fetch the data based on the type of PCD data format. Once we have the point, we calculate the distance of that point from the plane we generated based on the Cartesian formulae. If the calculated distance is within the THRESHOLD then we consider it as an inlier. After every iteration in MAX_ITERATIONS limit, we try to find the plane which has the maximum number of inliers through the logic in lines 53-55.
+
+_Lines 58-70_: After getting the plane with the best count of inliers, we consider all the other points as outliers, and segregate and store them separately for visualization.
