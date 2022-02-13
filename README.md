@@ -8,7 +8,7 @@ _Theory of RANSAC_
 The core algorithm is straightforward.
 
 Step 1: Select a random set of points (3 points forming a plane).
-![1_C9tEQNjhCsT5-pvez8aIOA](https://user-images.githubusercontent.com/62684338/153732130-792ebc83-7c18-4282-a3da-b3716cb9c8ad.png)
+![1_C9tEQNjhCsT5-pvez8aIOA](https://user-images.githubusercontent.com/62684338/153732130-792ebc83-7c18-4282-a3da-b3716cb9c8ad.png) 
 
 Step 2: Calculate the parameters required for the plane equation.
 ![1_uUDqCRcI_qrdEGsSDrJGtQ](https://user-images.githubusercontent.com/62684338/153732203-af330f46-ed87-4d7c-9e49-f76a66087c0e.png)
